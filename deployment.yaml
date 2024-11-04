@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-example-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: argo-example-app
+  template:
+    metadata:
+      labels:
+        app: argo-example-app
+    spec:
+      containers:
+      - name: argo-example-app
+        image: <docker_hub_kullanıcı_adı>/argo-example-app:latest
+        ports:
+        - containerPort: 80
